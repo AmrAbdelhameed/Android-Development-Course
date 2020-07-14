@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">radioexample</string>
+    <string name="temperature">Temperature</string>
+    <string name="enter_number">Enter number</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="calculate">Calculate</string>
+    <string name="please_enter_a_valid_number">Please enter a valid number</string>
+</resources>

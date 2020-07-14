@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">spinnerexample</string>
+    <string name="temperature">Temperature</string>
+    <string name="enter_number">Enter number</string>
+    <string-array name="tempOptions">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+</resources>
