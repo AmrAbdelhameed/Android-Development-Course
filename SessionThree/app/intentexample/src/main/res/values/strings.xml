@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">intentexample</string>
+    <string name="navigate_to_second">Navigate to Second</string>
+    <string name="navigate_to_google">Navigate to Google</string>
+</resources>

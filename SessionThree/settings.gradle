@@ -1,0 +1,4 @@
+include ':app:intentexample'
+include ':app:recyclerviewexample'
+include ':app'
+rootProject.name = "SessionThree"
