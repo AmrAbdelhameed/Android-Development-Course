@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewEvent{
     EditText name;
     RecyclerView recyclerView;
     private List<RecyclerViewItem> recyclerViewItems;
@@ -29,26 +29,26 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewItems = new ArrayList<>();
 
-        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, recyclerViewItems);
+        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, recyclerViewItems, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 3));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(recyclerViewAdapter);
 
-        recyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        RecyclerViewItem recyclerViewItem = recyclerViewItems.get(position);
-                        Toast.makeText(MainActivity.this, recyclerViewItem.getTitle(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onLongItemClick(View view, int position) {
-
-                    }
-                })
-        );
+//        recyclerView.addOnItemTouchListener(
+//                new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(View view, int position) {
+//                        RecyclerViewItem recyclerViewItem = recyclerViewItems.get(position);
+//                        Toast.makeText(MainActivity.this, recyclerViewItem.getTitle(), Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onLongItemClick(View view, int position) {
+//
+//                    }
+//                })
+//        );
     }
 
     public void add(View view) {
@@ -58,5 +58,23 @@ public class MainActivity extends AppCompatActivity {
             recyclerViewAdapter.notifyDataSetChanged();
             name.setText("");
         }
+    }
+
+    @Override
+    public void onRecyclerViewClick(int pos) {
+        RecyclerViewItem recyclerViewItem = recyclerViewItems.get(pos);
+        Toast.makeText(MainActivity.this, recyclerViewItem.getTitle(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void update(int pos) {
+        RecyclerViewItem recyclerViewItem = recyclerViewItems.get(pos);
+        Toast.makeText(MainActivity.this, "Updated: " + recyclerViewItem.getTitle(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void delete(int pos) {
+        RecyclerViewItem recyclerViewItem = recyclerViewItems.get(pos);
+        Toast.makeText(MainActivity.this, "Deleted: " + recyclerViewItem.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }
