@@ -1,0 +1,6 @@
+include ':app:alertdialogexample'
+include ':app:popupmenuexample'
+include ':app:contextmenuexample'
+include ':app:menuexample'
+include ':app'
+rootProject.name = "SessionFour"

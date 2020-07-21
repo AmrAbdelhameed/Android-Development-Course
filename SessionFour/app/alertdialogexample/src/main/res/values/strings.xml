@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">alertdialogexample</string>
+    <string name="alert_dialog">Alert Dialog</string>
+    <string name="alert_message">Do you want to close this application?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="alert_title">Alert</string>
+</resources>
