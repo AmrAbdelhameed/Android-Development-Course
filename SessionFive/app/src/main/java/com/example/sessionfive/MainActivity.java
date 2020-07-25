@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements ContactClickListe
         contacts.clear();
         Cursor cursor = contactsDbHelper.showContacts();
         while (!cursor.isAfterLast()) {
-            contacts.add(new Contact(cursor.getString(1), cursor.getString(2)));
+            contacts.add(new Contact(cursor.getInt(0), cursor.getString(1), cursor.getString(2)));
             cursor.moveToNext();
         }
         contactsAdapter.notifyDataSetChanged();
