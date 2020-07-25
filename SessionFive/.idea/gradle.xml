@@ -12,10 +12,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app/alertdialogexample" />
-            <option value="$PROJECT_DIR$/app/contextmenuexample" />
-            <option value="$PROJECT_DIR$/app/menuexample" />
-            <option value="$PROJECT_DIR$/app/popupmenuexample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

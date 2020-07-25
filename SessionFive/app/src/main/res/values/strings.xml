@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SessionFive</string>
+    <string name="new_contact">New Contact</string>
+    <string name="exit">Exit</string>
+    <string name="enter_name">enter name</string>
+    <string name="enter_phone">enter phone</string>
+    <string name="save">Save</string>
+</resources>
