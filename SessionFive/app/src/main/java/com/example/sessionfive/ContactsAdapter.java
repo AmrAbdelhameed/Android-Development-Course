@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,19 +43,31 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView icMore;
         TextView name, phone;
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            icMore = itemView.findViewById(R.id.ic_more);
             name = itemView.findViewById(R.id.name);
             phone = itemView.findViewById(R.id.phone);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     if (getAdapterPosition() != -1) {
                         Contact contact = contacts.get(getAdapterPosition());
-                        contactClickListener.onClickContact(contact);
+                        contactClickListener.onClick(view, contact);
+                    }
+                }
+            });
+
+            icMore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getAdapterPosition() != -1) {
+                        Contact contact = contacts.get(getAdapterPosition());
+                        contactClickListener.onMoreClick(view, contact);
                     }
                 }
             });

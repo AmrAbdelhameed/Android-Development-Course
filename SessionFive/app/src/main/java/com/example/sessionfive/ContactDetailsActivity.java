@@ -7,25 +7,35 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class NewContactActivity extends AppCompatActivity implements View.OnClickListener {
+public class ContactDetailsActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText name, phone;
     private ContactsDbHelper contactsDbHelper;
+    private Contact contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_contact);
+        setContentView(R.layout.activity_contact_details);
+
+        contactsDbHelper = new ContactsDbHelper(ContactDetailsActivity.this);
 
         name = findViewById(R.id.enter_name);
         phone = findViewById(R.id.enter_phone);
         Button save = findViewById(R.id.save);
         save.setOnClickListener(this);
 
-        contactsDbHelper = new ContactsDbHelper(this);
-
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(getString(R.string.new_contact));
+            getSupportActionBar().setTitle(getString(R.string.contact_details));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            contact = (Contact) bundle.getSerializable(Constants.CONTACT);
+            if (contact != null) {
+                name.setText(contact.getName());
+                phone.setText(contact.getPhone());
+            }
         }
     }
 
@@ -35,7 +45,14 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
             String _name = name.getText().toString();
             String _phone = phone.getText().toString();
             if (!_name.isEmpty() && !_phone.isEmpty()) {
-                contactsDbHelper.createContact(_name, _phone);
+                if (contact != null) {
+                    contact.setName(_name);
+                    contact.setPhone(_phone);
+                    contactsDbHelper.updateContact(contact);
+                } else {
+                    contact = new Contact(_name, _phone);
+                    contactsDbHelper.createContact(contact);
+                }
                 finish();
             }
         }

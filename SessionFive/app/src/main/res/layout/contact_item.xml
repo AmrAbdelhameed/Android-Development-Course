@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:layout_margin="16dp">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ic_more"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Name" />
+        android:src="@drawable/ic_more"
+        app:layout_constraintBottom_toBottomOf="@+id/linear_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linear_layout"
+        tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:text="Phone" />
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ic_more"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Phone" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

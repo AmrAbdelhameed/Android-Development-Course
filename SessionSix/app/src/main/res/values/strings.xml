@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SessionSix</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="login">Login</string>
+    <string name="welcome_msg">Welcome: </string>
+    <string name="logout">Logout</string>
+</resources>

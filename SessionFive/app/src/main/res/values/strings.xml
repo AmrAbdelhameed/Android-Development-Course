@@ -5,4 +5,7 @@
     <string name="enter_name">enter name</string>
     <string name="enter_phone">enter phone</string>
     <string name="save">Save</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="contact_details">Contact Details</string>
 </resources>
