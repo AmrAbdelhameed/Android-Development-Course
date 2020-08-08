@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SessionSeven</string>
+    <string name="tab_text_1">Play Music</string>
+    <string name="tab_text_2">Camera</string>
+    <string name="tab_text_3">Voice</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="music_started">Music Service Started</string>
+    <string name="music_stopped">Music Service Stopped</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="speech_to_text">Speech to text</string>
+</resources>
